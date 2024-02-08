@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Main Code
 app.get("/", (req, res) => {
-	res.status(200).json({ message: "Welcome to Kazuha Slayer API", version: "0.1" });
+	res.status(200).json({ message: "Welcome to Kazuha Slayer API", version: "0.2" });
 })
 
 
