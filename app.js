@@ -27,6 +27,7 @@ async function getInstagramProfileInfo() {
         "user-agent",
         "Instagram 76.0.0.15.395 Android (24/7.0; 640dpi; 1440x2560; samsung; SM-G930F; herolte; samsungexynos8890; en_US; 138226743)"
     );
+    myHeaders.append("Cookie", "csrftoken=HSuwypimSI859k2ADoQdXZFzRADzrqdu; mid=ZcTbPAABAAECGbgE6AT7MJG6kx8I");
     myHeaders.append("Origin", "http://www.instagram.com");
     myHeaders.append("Referer", "https://www.instagram.com/");
 
