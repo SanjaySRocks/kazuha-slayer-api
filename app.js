@@ -15,13 +15,7 @@ app.get("/", (req, res) => {
 
 
 app.get("/instagram", async (req, res) => {
-    const instaData = await getInstagramProfileInfo();
-	res.status(200).json({ data:  instaData });
-})
 
-
-
-async function getInstagramProfileInfo() {
     const myHeaders = new Headers();
     // myHeaders.append(
     //     "user-agent",
@@ -45,12 +39,21 @@ async function getInstagramProfileInfo() {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        const result = await response.json();
+        const instaData = await response.json();
+        res.status(200).json({ data:  instaData });
         // console.log(result);
-        return result;
+        // return result;
     } catch (error) {
-        throw error;
+        res.status(200).json({ data:  error });
     }
+
+	
+})
+
+
+
+async function getInstagramProfileInfo() {
+    
 }
 
 
