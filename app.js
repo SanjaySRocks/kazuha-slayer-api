@@ -23,10 +23,12 @@ app.get("/instagram", async (req, res) => {
 
 async function getInstagramProfileInfo() {
     const myHeaders = new Headers();
-    myHeaders.append(
-        "user-agent",
-        "Instagram 76.0.0.15.395 Android (24/7.0; 640dpi; 1440x2560; samsung; SM-G930F; herolte; samsungexynos8890; en_US; 138226743)"
-    );
+    // myHeaders.append(
+    //     "user-agent",
+    //     "Instagram 76.0.0.15.395 Android (24/7.0; 640dpi; 1440x2560; samsung; SM-G930F; herolte; samsungexynos8890; en_US; 138226743)"
+    // );
+    myHeaders.append("x-ig-app-id", "936619743392459");
+
     myHeaders.append("Cookie", "csrftoken=HSuwypimSI859k2ADoQdXZFzRADzrqdu; mid=ZcTbPAABAAECGbgE6AT7MJG6kx8I");
     myHeaders.append("Origin", "http://www.instagram.com");
     myHeaders.append("Referer", "https://www.instagram.com/");
@@ -44,7 +46,7 @@ async function getInstagramProfileInfo() {
             throw new Error('Network response was not ok');
         }
         const result = await response.json();
-        console.log(result);
+        // console.log(result);
         return result;
     } catch (error) {
         throw error;
