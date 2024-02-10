@@ -17,11 +17,11 @@ app.get("/", (req, res) => {
 app.get("/instagram", async (req, res) => {
 
     const myHeaders = new Headers();
-    // myHeaders.append(
-    //     "user-agent",
-    //     "Instagram 76.0.0.15.395 Android (24/7.0; 640dpi; 1440x2560; samsung; SM-G930F; herolte; samsungexynos8890; en_US; 138226743)"
-    // );
-    myHeaders.append("x-ig-app-id", "936619743392459");
+    myHeaders.append(
+        "user-agent",
+        "Instagram 76.0.0.15.395 Android (24/7.0; 640dpi; 1440x2560; samsung; SM-G930F; herolte; samsungexynos8890; en_US; 138226743)"
+    );
+    // myHeaders.append("x-ig-app-id", "936619743392459");
 
     myHeaders.append("Cookie", "csrftoken=HSuwypimSI859k2ADoQdXZFzRADzrqdu; mid=ZcTbPAABAAECGbgE6AT7MJG6kx8I");
     myHeaders.append("Origin", "http://www.instagram.com");
@@ -40,11 +40,12 @@ app.get("/instagram", async (req, res) => {
             throw new Error('Network response was not ok');
         }
         const instaData = await response.json();
+        console.log(instaData);
         res.status(200).json({ data:  instaData });
         // console.log(result);
         // return result;
     } catch (error) {
-        res.status(200).json({ data:  error });
+        res.status(200).json({ data:  error.message });
     }
 
 	
